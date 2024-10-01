@@ -8,7 +8,7 @@ FMS implements a financial model for stock market simulation using [OCaml](https
 ### Features
 
 - Monte Carlo simulation of stock price movements
-- Portfolio modelling with multiple stocks (AAPL, GOOGL, MSFT, NVDA, META)
+- Portfolio modelling with multiple stocks (AAPL, GOOGL, MSFT, NVDA, META...etc)
 - Risk metrics calculation (Value at Risk, Expected Return, Probability of Profit, Sharpe Ratio)
 - Configurable parameters (investment amount, time horizon, stock characteristics)
 
