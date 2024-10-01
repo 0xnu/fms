@@ -17,7 +17,7 @@ FMS implements a financial model for stock market simulation using [OCaml](https
 #### Stock Price Simulation
 
 Stock prices follow geometric Brownian motion:
-$$ dS = \mu S dt + \sigma S dW $$
+$$dS = \mu S dt + \sigma S dW$$
 where $S$ is the stock price, $\mu$ is the drift, $\sigma$ is the volatility, and $dW$ is a Wiener process.
 
 The discrete simulation uses:
