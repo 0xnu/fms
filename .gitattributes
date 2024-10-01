@@ -1,0 +1,32 @@
+# Set default behaviour to automatically normalize line endings
+* text=auto
+
+# Declare files that will always have LF line endings on checkout
+*.ml text eol=lf
+*.mli text eol=lf
+*.mll text eol=lf
+*.mly text eol=lf
+*.sh text eol=lf
+*.bash text eol=lf
+
+# OCaml specific
+*.cma binary
+*.cmxa binary
+*.cmo binary
+*.cmx binary
+*.cmxs binary
+*.a binary
+*.o binary
+
+# Ensure that these files are treated as text
+*.opam text
+dune text
+dune-project text
+*.md text
+*.txt text
+*.yml text
+*.yaml text
+*.json text
+
+# Treat patch files as binary
+*.patch binary

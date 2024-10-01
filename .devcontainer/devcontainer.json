@@ -1,0 +1,29 @@
+{
+  "name": "OCaml Development",
+  "image": "ocaml/opam:debian-11-ocaml-4.14",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "username": "vscode",
+      "upgradePackages": true
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ocamllabs.ocaml-platform",
+        "eamodio.gitlens",
+        "GitHub.copilot"
+      ],
+      "settings": {
+        "ocaml.sandbox": {
+          "kind": "opam",
+          "switch": "4.14.0"
+        }
+      }
+    }
+  },
+  "forwardPorts": [8080],
+  "postCreateCommand": "opam update && opam install -y dune ocaml-lsp-server ocamlformat utop",
+  "remoteUser": "vscode"
+}
