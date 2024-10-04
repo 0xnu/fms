@@ -108,10 +108,10 @@ This project is licensed under the [BSD 3-Clause](LICENSE) License.
   author       = {Oketunji, A.F.},
   title        = {FMS — Financial Modelling System},
   year         = 2024,
-  version      = {0.0.1},
+  version      = {0.0.2},
   publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.13876352},
-  url          = {https://doi.org/10.5281/zenodo.13876352}
+  doi          = {10.5281/zenodo.13889349},
+  url          = {https://doi.org/10.5281/zenodo.13889349}
 }
 ```
 

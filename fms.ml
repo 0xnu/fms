@@ -70,18 +70,35 @@ module FMS = struct
     Random.self_init ();
     let portfolio_experiment = {
       stocks = [
-        ({symbol = "TSLA"; current_price = 260.13; volatility = 0.45; expected_return = 0.15}, 5); (* Autonomous Vehicles *)
-        ({symbol = "GOOGL"; current_price = 165.27; volatility = 0.30; expected_return = 0.12}, 7); (* AI *)
-        ({symbol = "NVDA"; current_price = 121.35; volatility = 0.40; expected_return = 0.18}, 10); (* AI & Autonomous Vehicles *)
-        ({symbol = "IBM"; current_price = 223.93; volatility = 0.25; expected_return = 0.10}, 6); (* Quantum Computing *)
-        ({symbol = "MSFT"; current_price = 429.93; volatility = 0.25; expected_return = 0.11}, 3); (* Cloud Computing *)
-        ({symbol = "AMZN"; current_price = 188.41; volatility = 0.35; expected_return = 0.14}, 6); (* AI & Cloud Computing *)
-        ({symbol = "BIDU"; current_price = 106.98; volatility = 0.50; expected_return = 0.16}, 10); (* Autonomous Vehicles & AI *)
-        ({symbol = "IONQ"; current_price = 9.72; volatility = 0.60; expected_return = 0.20}, 100); (* Quantum Computing *)
-        ({symbol = "CRM"; current_price = 277.26; volatility = 0.30; expected_return = 0.13}, 4); (* Cloud Computing *)
-        ({symbol = "AMD"; current_price = 167.85; volatility = 0.45; expected_return = 0.17}, 6); (* AI & Cloud Computing *)
+        (* Existing stocks *)
+        ({symbol = "TSLA"; current_price = 260.13; volatility = 0.45; expected_return = 0.15}, 1); (* Autonomous Vehicles *)
+        ({symbol = "GOOGL"; current_price = 165.27; volatility = 0.30; expected_return = 0.12}, 2); (* AI *)
+        ({symbol = "NVDA"; current_price = 121.35; volatility = 0.40; expected_return = 0.18}, 3); (* AI & Autonomous Vehicles *)
+        ({symbol = "IBM"; current_price = 223.93; volatility = 0.25; expected_return = 0.10}, 1); (* Quantum Computing *)
+        ({symbol = "MSFT"; current_price = 429.93; volatility = 0.25; expected_return = 0.11}, 1); (* Cloud Computing *)
+        ({symbol = "AMZN"; current_price = 188.41; volatility = 0.35; expected_return = 0.14}, 2); (* AI & Cloud Computing *)
+        ({symbol = "BIDU"; current_price = 106.98; volatility = 0.50; expected_return = 0.16}, 3); (* Autonomous Vehicles & AI *)
+        ({symbol = "IONQ"; current_price = 9.72; volatility = 0.60; expected_return = 0.20}, 33); (* Quantum Computing *)
+        ({symbol = "CRM"; current_price = 277.26; volatility = 0.30; expected_return = 0.13}, 1); (* Cloud Computing *)
+        ({symbol = "AMD"; current_price = 167.85; volatility = 0.45; expected_return = 0.17}, 2); (* AI & Cloud Computing *)
+        (* New Quantum Computing stocks *)
+        ({symbol = "QUBT"; current_price = 0.67; volatility = 0.70; expected_return = 0.25}, 165);
+        ({symbol = "RGTI"; current_price = 0.75; volatility = 0.65; expected_return = 0.23}, 127);
+        ({symbol = "ARRXF"; current_price = 0.18; volatility = 0.80; expected_return = 0.28}, 582);
+        ({symbol = "QBTS"; current_price = 0.92; volatility = 0.68; expected_return = 0.24}, 118);
+        (* New Autonomous Vehicles stocks *)
+        ({symbol = "NIO"; current_price = 6.70; volatility = 0.55; expected_return = 0.20}, 37);
+        ({symbol = "REKR"; current_price = 1.10; volatility = 0.60; expected_return = 0.22}, 82);
+        ({symbol = "LTRX"; current_price = 3.92; volatility = 0.50; expected_return = 0.18}, 34);
+        ({symbol = "AEVA"; current_price = 3.08; volatility = 0.75; expected_return = 0.26}, 223);
+        ({symbol = "VLDR"; current_price = 1.26; volatility = 0.72; expected_return = 0.25}, 205);
+        ({symbol = "ARBE"; current_price = 1.88; volatility = 0.68; expected_return = 0.24}, 151);
+        ({symbol = "MVIS"; current_price = 1.15; volatility = 0.65; expected_return = 0.23}, 115);
+        ({symbol = "GOEV"; current_price = 0.96; volatility = 0.85; expected_return = 0.30}, 798);
+        ({symbol = "AUR"; current_price = 5.19; volatility = 0.78; expected_return = 0.27}, 255);
+        ({symbol = "FRSX"; current_price = 0.70; volatility = 0.85; expected_return = 0.30}, 798);
       ];
-      cash = 500.0;
+      cash = 0.0;
     } in
 
     let results = monte_carlo_simulation portfolio_experiment in
