@@ -114,7 +114,7 @@ Where:
 
 The diagonal entries $\sigma_i$ of $\Sigma$ are known as the singular values of $A$. For dimensionality reduction, we can approximate $A$ by keeping only the $k$ largest singular values:
 
-$$ A_k = \sum_{i=1}^k \sigma_i u_i v_i^T $$
+$$A_k = \sum_{i=1}^k \sigma_i u_i v_i^T$$
 
 Where $u_i$ and $v_i$ are the $i$-th columns of $U$ and $V$ respectively.
 
@@ -124,7 +124,7 @@ b. QR Decomposition
 
 QR decomposition factors a matrix $A$ into a product of an orthogonal matrix $Q$ and an upper triangular matrix $R$:
 
-$$ A = QR $$
+$$A = QR$$
 
 Where:
 - $A$ is an $m \times n$ matrix
@@ -133,8 +133,8 @@ Where:
 
 For solving least squares problems $Ax = b$, we can use QR decomposition:
 
-$$ QRx = b $$
-$$ Rx = Q^Tb $$
+$$QRx = b$$
+$$Rx = Q^Tb$$
 
 Enables the system to solve efficiently due to $R$ being upper triangular.
 
@@ -148,7 +148,7 @@ $$\min_{x \in \mathbb{R}^n} f(x)$$
 
 At each iteration, we solve the subproblem:
 
-$$ \min_{p \in \mathbb{R}^n} m_k(p) \quad \text{subject to} \quad \|p\| \leq \Delta_k $$
+$$\min_{p \in \mathbb{R}^n} m_k(p) \quad \text{subject to} \quad \|p\| \leq \Delta_k$$
 
 Where:
 
