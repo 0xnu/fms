@@ -81,12 +81,12 @@ module FMS = struct
         ({symbol = "IONQ"; current_price = 9.72; volatility = 0.60; expected_return = 0.20}, 33); (* Quantum Computing *)
         ({symbol = "CRM"; current_price = 277.26; volatility = 0.30; expected_return = 0.13}, 1); (* Cloud Computing *)
         ({symbol = "AMD"; current_price = 167.85; volatility = 0.45; expected_return = 0.17}, 2); (* AI & Cloud Computing *)
-        (* New Quantum Computing stocks *)
+        (* Quantum Computing stocks *)
         ({symbol = "QUBT"; current_price = 0.67; volatility = 0.70; expected_return = 0.25}, 165);
         ({symbol = "RGTI"; current_price = 0.75; volatility = 0.65; expected_return = 0.23}, 127);
         ({symbol = "ARRXF"; current_price = 0.18; volatility = 0.80; expected_return = 0.28}, 582);
         ({symbol = "QBTS"; current_price = 0.92; volatility = 0.68; expected_return = 0.24}, 118);
-        (* New Autonomous Vehicles stocks *)
+        (* Autonomous Vehicles stocks *)
         ({symbol = "NIO"; current_price = 6.70; volatility = 0.55; expected_return = 0.20}, 37);
         ({symbol = "REKR"; current_price = 1.10; volatility = 0.60; expected_return = 0.22}, 82);
         ({symbol = "LTRX"; current_price = 3.92; volatility = 0.50; expected_return = 0.18}, 34);
@@ -97,6 +97,11 @@ module FMS = struct
         ({symbol = "GOEV"; current_price = 0.96; volatility = 0.85; expected_return = 0.30}, 798);
         ({symbol = "AUR"; current_price = 5.19; volatility = 0.78; expected_return = 0.27}, 255);
         ({symbol = "FRSX"; current_price = 0.70; volatility = 0.85; expected_return = 0.30}, 798);
+        (* New Lithium stocks *)
+        ({symbol = "SLI"; current_price = 1.63; volatility = 0.70; expected_return = 0.25}, 100);
+        ({symbol = "NRVTF"; current_price = 0.094; volatility = 0.80; expected_return = 0.28}, 1000);
+        ({symbol = "WWR"; current_price = 0.51; volatility = 0.75; expected_return = 0.26}, 200);
+        ({symbol = "AMLI"; current_price = 0.55; volatility = 0.72; expected_return = 0.25}, 180);
       ];
       cash = 0.0;
     } in
