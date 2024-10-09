@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.4 - 2024-10-09 - @0xnu
+
+* Dynamic Portfolio Value
+* Self-Regulating Long Short-Term Memory (SR-LSTM)
+
 ## 0.0.3 - 2024-10-04 - @0xnu
 
 * Future Enhancements
