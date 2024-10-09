@@ -7,10 +7,18 @@ FMS implements a financial model for stock market simulation using [OCaml](https
 
 ### Features
 
-- Monte Carlo simulation of stock price movements
-- Portfolio modelling with multiple stocks (AAPL, GOOGL, MSFT, NVDA, META...etc)
+- Monte Carlo simulation of stock price movements using both traditional and SR-LSTM models
+- Portfolio modelling with multiple stocks (TSLA, GOOGL, NVDA, IBM, MSFT, AMZN, and many more)
 - Risk metrics calculation (Value at Risk, Expected Return, Probability of Profit, Sharpe Ratio)
 - Configurable parameters (investment amount, time horizon, stock characteristics)
+- Dynamic Portfolio Value calculation to estimate future portfolio worth
+- SR-LSTM (Self-Regulating Long Short-Term Memory) implementation for advanced stock price prediction
+- Comparative analysis between traditional Monte Carlo and SR-LSTM models
+- Individual stock performance metrics for both traditional and SR-LSTM models
+- Identification of best-performing stocks based on Sharpe Ratio
+- Calculation of the average Sharpe Ratio across the portfolio for both models
+- Detailed output of overall portfolio metrics and individual stock metrics
+- Extensive portfolio with a mix of established tech giants and emerging technology companies
 
 ### Mathematical Model
 
@@ -66,6 +74,35 @@ $$\text{Sharpe Ratio} = \frac{E[R] - R_f}{\sigma}$$
 
 where $E[R]$ is the expected return, $R_f$ is the risk-free rate, and $\sigma$ is the standard deviation of returns.
 
+#### Dynamic Portfolio Value
+
+The portfolio value $V$ at time $t$ remains:
+
+$$V(t) = \sum_{i=1}^{n} w_i(t) S_i(t) + C(t)$$
+
+where $w_i(t)$ is the dynamic weight of stock $i$, $S_i(t)$ is the price of stock $i$ at time $t$, and $C(t)$ is the cash holding at time $t$.
+
+#### Machine Learning Integration with SR-LSTM
+
+We incorporate a [Self-Regulating Long Short-Term Memory](https://arxiv.org/abs/2312.08948) (SR-LSTM) neural network to predict future stock prices:
+
++ Regulatory Factor Calculation:
+
+   $$R_t = \rho(W_r \cdot h_{t-1} + b_r)$$
+
+   Here, $R_t$ is the regulatory factor for time step $t$, $W_r$ is the weight matrix, $b_r$ is the bias term, and $\rho$ is a non-linear activation function.
+
++ Modified Forget and Input Gates:
+
+   $$f'_t = f_t \odot R_t$$
+   $$i'_t = i_t \odot R_t$$
+
+   We modify the standard forget gate $f_t$ and input gate $i_t$ by the regulatory factor $R_t$ to adjust the information flow dynamically.
+
++ Cell State and Output Gate:
+
+   The cell state update and output gate equations remain the same as in standard LSTM, but they operate on the modified gates $f'_t$ and $i'_t$.
+
 ### Prerequisite
 
 - [OCaml](https://ocaml.org/) (version 4.08 or higher recommended)
@@ -86,8 +123,22 @@ eval $(opam env) && make clean && make all VERBOSE=1 && ./fms
 
 The simulation displays:
 
-- Overall portfolio metrics (Expected Return, VaR, Probability of Profit, Sharpe Ratio)
-- Individual stock metrics (Current Price, Expected Return, Probability of Profit, Sharpe Ratio)
+- Initial investment amount and investment horizon
+- Overall portfolio metrics for both Traditional and SR-LSTM models:
+  - Expected Return
+  - Value at Risk (VaR) at 95% and 99% confidence levels
+  - Probability of Profit
+  - Sharpe Ratio
+- Individual stock metrics for both Traditional and SR-LSTM models:
+  - Current Price
+  - Expected Return
+  - Probability of Profit
+  - Sharpe Ratio
+- Dynamic Portfolio Value estimation after the investment horizon
+- Comparison of Total Expected Returns between Traditional and SR-LSTM models
+- Difference in expected returns between the two models
+- Average Sharpe Ratios for both Traditional and SR-LSTM models across the portfolio
+- Best Performing Stocks based on Sharpe Ratio for both models
 
 ### Customisation
 
@@ -179,10 +230,10 @@ This project is licensed under the [BSD 3-Clause](LICENSE) License.
   author       = {Oketunji, A.F.},
   title        = {FMS — Financial Modelling System},
   year         = 2024,
-  version      = {0.0.3},
+  version      = {0.0.4},
   publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.13891936},
-  url          = {https://doi.org/10.5281/zenodo.13891936}
+  doi          = {10.5281/zenodo.13910428},
+  url          = {https://doi.org/10.5281/zenodo.13910428}
 }
 ```
 
