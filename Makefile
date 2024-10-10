@@ -81,12 +81,16 @@ build: $(INTF) $(SRC) ## Build the Financial Modelling System executable
 run: $(TARGET) ## Run the Financial Modelling System
 	./$(TARGET)
 
+write-output: $(TARGET) ## Run the simulation and write output to simulation_result.md
+	@echo "## Simulation Result" > simulation_result.md
+	@./$(TARGET) >> simulation_result.md
+
 clean: ## Clean up build artifacts
 	rm -f *.cmi *.cmo *.cmx *.o $(TARGET)
 
 help: ## Display help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: all check-opam install-deps build run clean help
+.PHONY: all check-opam install-deps build run write-output clean help
 
 .DEFAULT_GOAL := help
