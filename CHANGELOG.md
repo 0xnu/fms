@@ -4,6 +4,7 @@
 
 * Dynamic Portfolio Value
 * Self-Regulating Long Short-Term Memory (SR-LSTM)
+* Simulation Result
 
 ## 0.0.3 - 2024-10-04 - @0xnu
 

@@ -117,6 +117,10 @@ We incorporate a [Self-Regulating Long Short-Term Memory](https://arxiv.org/abs/
 
 ```sh
 eval $(opam env) && make clean && make all VERBOSE=1 && ./fms
+
+## OR ##
+
+eval $(opam env) && make clean && make all VERBOSE=1 && make write-output
 ```
 
 ### Output
