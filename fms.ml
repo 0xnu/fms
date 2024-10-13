@@ -143,46 +143,53 @@ module FMS = struct
     let stock_values = List.map simulate_holding portfolio.stocks in
     List.fold_left (+.) portfolio.cash stock_values
 
+  (* New function to read stocks from file *)
+  let read_stocks_from_file filename =
+    let ic = open_in filename in
+    let content = really_input_string ic (in_channel_length ic) in
+    close_in ic;
+    Printf.printf "File content:\n%s\n" content;  (* Debug print *)
+    if String.length content = 0 then
+      raise (Failure "File is empty")
+    else
+      let lines = String.split_on_char '\n' content in
+      let stock_lines = List.filter (fun line ->
+        let trimmed = String.trim line in
+        String.length trimmed > 0 && not (String.starts_with ~prefix:"(*" trimmed) &&
+        not (String.starts_with ~prefix:"stocks =" trimmed) &&
+        not (String.starts_with ~prefix:"];" trimmed)
+      ) lines in
+      let parse_stock str =
+        try
+          Scanf.sscanf str " ({symbol = %S; current_price = %f; volatility = %f; expected_return = %f}, %d)"
+            (fun symbol price volatility return quantity ->
+              Some ({symbol = symbol; current_price = price; volatility = volatility; expected_return = return}, quantity))
+        with e ->
+          Printf.printf "Failed to parse stock: '%s'\n" str;
+          Printf.printf "Error: %s\n" (Printexc.to_string e);
+          None
+      in
+      let stocks = List.filter_map parse_stock stock_lines in
+      if List.length stocks = 0 then
+        raise (Failure "No valid stocks found in the file")
+      else
+        stocks
+
   (* Main function *)
   let run_simulation () =
     Random.self_init ();
+    let stocks =
+      try
+        read_stocks_from_file "stocks.txt"
+      with
+      | Failure msg ->
+          Printf.printf "Error: %s\n" msg;
+          exit 1
+    in
+    Printf.printf "Successfully parsed %d stocks.\n" (List.length stocks);
+
     let portfolio_experiment = {
-      stocks = [
-        ({symbol = "TSLA"; current_price = 260.13; volatility = 0.45; expected_return = 0.15}, 1);
-        ({symbol = "GOOGL"; current_price = 165.27; volatility = 0.30; expected_return = 0.12}, 2);
-        ({symbol = "NVDA"; current_price = 121.35; volatility = 0.40; expected_return = 0.18}, 3);
-        ({symbol = "IBM"; current_price = 223.93; volatility = 0.25; expected_return = 0.10}, 1);
-        ({symbol = "MSFT"; current_price = 429.93; volatility = 0.25; expected_return = 0.11}, 1);
-        ({symbol = "AMZN"; current_price = 188.41; volatility = 0.35; expected_return = 0.14}, 2);
-        ({symbol = "BIDU"; current_price = 106.98; volatility = 0.50; expected_return = 0.16}, 3);
-        ({symbol = "IONQ"; current_price = 9.72; volatility = 0.60; expected_return = 0.20}, 33);
-        ({symbol = "CRM"; current_price = 277.26; volatility = 0.30; expected_return = 0.13}, 1);
-        ({symbol = "AMD"; current_price = 167.85; volatility = 0.45; expected_return = 0.17}, 2);
-        ({symbol = "QUBT"; current_price = 0.67; volatility = 0.70; expected_return = 0.25}, 165);
-        ({symbol = "RGTI"; current_price = 0.75; volatility = 0.65; expected_return = 0.23}, 127);
-        ({symbol = "ARRXF"; current_price = 0.18; volatility = 0.80; expected_return = 0.28}, 582);
-        ({symbol = "QBTS"; current_price = 0.92; volatility = 0.68; expected_return = 0.24}, 118);
-        ({symbol = "NIO"; current_price = 6.70; volatility = 0.55; expected_return = 0.20}, 37);
-        ({symbol = "REKR"; current_price = 1.10; volatility = 0.60; expected_return = 0.22}, 82);
-        ({symbol = "LTRX"; current_price = 3.92; volatility = 0.50; expected_return = 0.18}, 34);
-        ({symbol = "AEVA"; current_price = 3.08; volatility = 0.75; expected_return = 0.26}, 223);
-        ({symbol = "VLDR"; current_price = 1.26; volatility = 0.72; expected_return = 0.25}, 205);
-        ({symbol = "ARBE"; current_price = 1.88; volatility = 0.68; expected_return = 0.24}, 151);
-        ({symbol = "MVIS"; current_price = 1.15; volatility = 0.65; expected_return = 0.23}, 115);
-        ({symbol = "GOEV"; current_price = 0.96; volatility = 0.85; expected_return = 0.30}, 798);
-        ({symbol = "AUR"; current_price = 5.19; volatility = 0.78; expected_return = 0.27}, 255);
-        ({symbol = "FRSX"; current_price = 0.70; volatility = 0.85; expected_return = 0.30}, 798);
-        ({symbol = "SLI"; current_price = 1.63; volatility = 0.70; expected_return = 0.25}, 100);
-        ({symbol = "NRVTF"; current_price = 0.094; volatility = 0.80; expected_return = 0.28}, 1000);
-        ({symbol = "WWR"; current_price = 0.51; volatility = 0.75; expected_return = 0.26}, 200);
-        ({symbol = "AMLI"; current_price = 0.55; volatility = 0.72; expected_return = 0.25}, 180);
-        (* avionics and autonomous systems stocks *)
-        ({symbol = "CVU"; current_price = 3.33; volatility = 0.65; expected_return = 0.22}, 50);
-        ({symbol = "BBAI"; current_price = 1.61; volatility = 0.70; expected_return = 0.24}, 100);
-        ({symbol = "LUNA"; current_price = 1.90; volatility = 0.68; expected_return = 0.23}, 85);
-        ({symbol = "ONDS"; current_price = 0.90; volatility = 0.75; expected_return = 0.26}, 180);
-        ({symbol = "AVAV"; current_price = 215.39; volatility = 0.55; expected_return = 0.20}, 1);
-      ];
+      stocks = stocks;
       cash = 0.0;
     } in
 
