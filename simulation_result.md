@@ -1,6 +1,6 @@
 ## Simulation Result
 File content:
-stocks = [
+let stocks = [
   ({symbol = "TSLA"; current_price = 260.13; volatility = 0.45; expected_return = 0.15}, 1);
   ({symbol = "GOOGL"; current_price = 165.27; volatility = 0.30; expected_return = 0.12}, 2);
   ({symbol = "NVDA"; current_price = 121.35; volatility = 0.40; expected_return = 0.18}, 3);
@@ -34,26 +34,27 @@ stocks = [
   ({symbol = "LUNA"; current_price = 1.90; volatility = 0.68; expected_return = 0.23}, 85);
   ({symbol = "ONDS"; current_price = 0.90; volatility = 0.75; expected_return = 0.26}, 180);
   ({symbol = "AVAV"; current_price = 215.39; volatility = 0.55; expected_return = 0.20}, 1);
-];
+  ({symbol = "HL"; current_price = 7.16; volatility = 0.50; expected_return = 0.15}, 20);
+]
 
-Successfully parsed 33 stocks.
+Successfully parsed 34 stocks.
 Initial Investment: £5000.00
 Investment Horizon: 3 years
 
 Overall Portfolio Metrics:
                    Traditional   SR-LSTM
-Expected Return:   £9203.80         £425.69
-VaR (95%):        £1057.31         £425.69
-VaR (99%):        £-477.27         £425.69
-Prob. of Profit:   98.26%         100.00%
-Sharpe Ratio:      0.93           6319451803691.85
+Expected Return:   £9255.37         £430.75
+VaR (95%):        £1101.77         £430.75
+VaR (99%):        £-379.44         £430.75
+Prob. of Profit:   98.34%         100.00%
+Sharpe Ratio:      0.94           7487648730505.60
 
 Individual Stock Metrics:
 TSLA:
   Current Price: £260.13
   Traditional Model:
-    Expected Return: £151.19
-    Probability of Profit: 57.28%
+    Expected Return: £144.48
+    Probability of Profit: 57.54%
     Sharpe Ratio: 0.40
   SR-LSTM Model:
     Expected Return: £25.93
@@ -63,9 +64,9 @@ TSLA:
 GOOGL:
   Current Price: £165.27
   Traditional Model:
-    Expected Return: £140.19
-    Probability of Profit: 66.54%
-    Sharpe Ratio: 0.54
+    Expected Return: £147.88
+    Probability of Profit: 67.25%
+    Sharpe Ratio: 0.56
   SR-LSTM Model:
     Expected Return: £32.94
     Probability of Profit: 100.00%
@@ -74,8 +75,8 @@ GOOGL:
 NVDA:
   Current Price: £121.35
   Traditional Model:
-    Expected Return: £259.05
-    Probability of Profit: 66.70%
+    Expected Return: £260.51
+    Probability of Profit: 67.36%
     Sharpe Ratio: 0.54
   SR-LSTM Model:
     Expected Return: £36.28
@@ -85,9 +86,9 @@ NVDA:
 IBM:
   Current Price: £223.93
   Traditional Model:
-    Expected Return: £77.34
-    Probability of Profit: 68.15%
-    Sharpe Ratio: 0.56
+    Expected Return: £77.88
+    Probability of Profit: 68.39%
+    Sharpe Ratio: 0.57
   SR-LSTM Model:
     Expected Return: £22.32
     Probability of Profit: 100.00%
@@ -96,9 +97,9 @@ IBM:
 MSFT:
   Current Price: £429.93
   Traditional Model:
-    Expected Return: £167.22
-    Probability of Profit: 70.35%
-    Sharpe Ratio: 0.61
+    Expected Return: £172.32
+    Probability of Profit: 71.48%
+    Sharpe Ratio: 0.62
   SR-LSTM Model:
     Expected Return: £42.85
     Probability of Profit: 100.00%
@@ -107,9 +108,9 @@ MSFT:
 AMZN:
   Current Price: £188.41
   Traditional Model:
-    Expected Return: £195.10
-    Probability of Profit: 65.10%
-    Sharpe Ratio: 0.51
+    Expected Return: £205.76
+    Probability of Profit: 65.55%
+    Sharpe Ratio: 0.52
   SR-LSTM Model:
     Expected Return: £37.56
     Probability of Profit: 100.00%
@@ -118,9 +119,9 @@ AMZN:
 BIDU:
   Current Price: £106.98
   Traditional Model:
-    Expected Return: £198.68
-    Probability of Profit: 55.02%
-    Sharpe Ratio: 0.37
+    Expected Return: £191.81
+    Probability of Profit: 54.77%
+    Sharpe Ratio: 0.35
   SR-LSTM Model:
     Expected Return: £31.99
     Probability of Profit: 100.00%
@@ -129,9 +130,9 @@ BIDU:
 IONQ:
   Current Price: £9.72
   Traditional Model:
-    Expected Return: £267.23
-    Probability of Profit: 52.06%
-    Sharpe Ratio: 0.33
+    Expected Return: £257.94
+    Probability of Profit: 51.46%
+    Sharpe Ratio: 0.32
   SR-LSTM Model:
     Expected Return: £15.14
     Probability of Profit: 100.00%
@@ -140,9 +141,9 @@ IONQ:
 CRM:
   Current Price: £277.26
   Traditional Model:
-    Expected Return: £133.75
-    Probability of Profit: 68.76%
-    Sharpe Ratio: 0.58
+    Expected Return: £136.24
+    Probability of Profit: 69.41%
+    Sharpe Ratio: 0.59
   SR-LSTM Model:
     Expected Return: £27.63
     Probability of Profit: 100.00%
@@ -151,9 +152,9 @@ CRM:
 AMD:
   Current Price: £167.85
   Traditional Model:
-    Expected Return: £221.92
-    Probability of Profit: 60.38%
-    Sharpe Ratio: 0.44
+    Expected Return: £231.19
+    Probability of Profit: 60.89%
+    Sharpe Ratio: 0.45
   SR-LSTM Model:
     Expected Return: £33.46
     Probability of Profit: 100.00%
@@ -162,9 +163,9 @@ AMD:
 QUBT:
   Current Price: £0.67
   Traditional Model:
-    Expected Return: £130.92
-    Probability of Profit: 50.52%
-    Sharpe Ratio: 0.30
+    Expected Return: £114.99
+    Probability of Profit: 49.89%
+    Sharpe Ratio: 0.31
   SR-LSTM Model:
     Expected Return: £0.90
     Probability of Profit: 100.00%
@@ -173,9 +174,9 @@ QUBT:
 RGTI:
   Current Price: £0.75
   Traditional Model:
-    Expected Return: £89.72
-    Probability of Profit: 51.29%
-    Sharpe Ratio: 0.31
+    Expected Return: £94.36
+    Probability of Profit: 51.88%
+    Sharpe Ratio: 0.33
   SR-LSTM Model:
     Expected Return: £0.78
     Probability of Profit: 100.00%
@@ -184,9 +185,9 @@ RGTI:
 ARRXF:
   Current Price: £0.18
   Traditional Model:
-    Expected Return: £124.02
-    Probability of Profit: 45.92%
-    Sharpe Ratio: 0.26
+    Expected Return: £137.84
+    Probability of Profit: 45.56%
+    Sharpe Ratio: 0.24
   SR-LSTM Model:
     Expected Return: £0.72
     Probability of Profit: 100.00%
@@ -195,9 +196,9 @@ ARRXF:
 QBTS:
   Current Price: £0.92
   Traditional Model:
-    Expected Return: £115.03
-    Probability of Profit: 50.42%
-    Sharpe Ratio: 0.23
+    Expected Return: £116.93
+    Probability of Profit: 50.93%
+    Sharpe Ratio: 0.28
   SR-LSTM Model:
     Expected Return: £0.98
     Probability of Profit: 100.00%
@@ -206,9 +207,9 @@ QBTS:
 NIO:
   Current Price: £6.70
   Traditional Model:
-    Expected Return: £204.72
-    Probability of Profit: 56.79%
-    Sharpe Ratio: 0.40
+    Expected Return: £197.83
+    Probability of Profit: 56.33%
+    Sharpe Ratio: 0.38
   SR-LSTM Model:
     Expected Return: £8.34
     Probability of Profit: 100.00%
@@ -217,9 +218,9 @@ NIO:
 REKR:
   Current Price: £1.10
   Traditional Model:
-    Expected Return: £82.35
-    Probability of Profit: 53.68%
-    Sharpe Ratio: 0.35
+    Expected Return: £83.06
+    Probability of Profit: 54.58%
+    Sharpe Ratio: 0.34
   SR-LSTM Model:
     Expected Return: £0.84
     Probability of Profit: 100.00%
@@ -228,8 +229,8 @@ REKR:
 LTRX:
   Current Price: £3.92
   Traditional Model:
-    Expected Return: £97.75
-    Probability of Profit: 57.74%
+    Expected Return: £91.09
+    Probability of Profit: 57.62%
     Sharpe Ratio: 0.39
   SR-LSTM Model:
     Expected Return: £2.74
@@ -239,9 +240,9 @@ LTRX:
 AEVA:
   Current Price: £3.08
   Traditional Model:
-    Expected Return: £850.39
-    Probability of Profit: 47.70%
-    Sharpe Ratio: 0.26
+    Expected Return: £793.09
+    Probability of Profit: 47.59%
+    Sharpe Ratio: 0.25
   SR-LSTM Model:
     Expected Return: £12.57
     Probability of Profit: 100.00%
@@ -250,9 +251,9 @@ AEVA:
 VLDR:
   Current Price: £1.26
   Traditional Model:
-    Expected Return: £303.03
-    Probability of Profit: 49.00%
-    Sharpe Ratio: 0.29
+    Expected Return: £298.51
+    Probability of Profit: 49.40%
+    Sharpe Ratio: 0.28
   SR-LSTM Model:
     Expected Return: £2.71
     Probability of Profit: 100.00%
@@ -261,9 +262,9 @@ VLDR:
 ARBE:
   Current Price: £1.88
   Traditional Model:
-    Expected Return: £278.59
-    Probability of Profit: 49.71%
-    Sharpe Ratio: 0.31
+    Expected Return: £307.96
+    Probability of Profit: 51.16%
+    Sharpe Ratio: 0.27
   SR-LSTM Model:
     Expected Return: £3.63
     Probability of Profit: 100.00%
@@ -272,9 +273,9 @@ ARBE:
 MVIS:
   Current Price: £1.15
   Traditional Model:
-    Expected Return: £129.00
-    Probability of Profit: 51.96%
-    Sharpe Ratio: 0.30
+    Expected Return: £132.08
+    Probability of Profit: 51.63%
+    Sharpe Ratio: 0.29
   SR-LSTM Model:
     Expected Return: £1.29
     Probability of Profit: 100.00%
@@ -283,9 +284,9 @@ MVIS:
 GOEV:
   Current Price: £0.96
   Traditional Model:
-    Expected Return: £1193.82
-    Probability of Profit: 45.82%
-    Sharpe Ratio: 0.21
+    Expected Return: £1103.71
+    Probability of Profit: 44.52%
+    Sharpe Ratio: 0.22
   SR-LSTM Model:
     Expected Return: £7.69
     Probability of Profit: 100.00%
@@ -294,9 +295,9 @@ GOEV:
 AUR:
   Current Price: £5.19
   Traditional Model:
-    Expected Return: £1622.99
-    Probability of Profit: 47.91%
-    Sharpe Ratio: 0.27
+    Expected Return: £1656.96
+    Probability of Profit: 46.93%
+    Sharpe Ratio: 0.26
   SR-LSTM Model:
     Expected Return: £37.16
     Probability of Profit: 100.00%
@@ -305,9 +306,9 @@ AUR:
 FRSX:
   Current Price: £0.70
   Traditional Model:
-    Expected Return: £771.28
-    Probability of Profit: 44.94%
-    Sharpe Ratio: 0.24
+    Expected Return: £809.51
+    Probability of Profit: 45.61%
+    Sharpe Ratio: 0.22
   SR-LSTM Model:
     Expected Return: £5.05
     Probability of Profit: 100.00%
@@ -316,9 +317,9 @@ FRSX:
 SLI:
   Current Price: £1.63
   Traditional Model:
-    Expected Return: £186.33
-    Probability of Profit: 50.63%
-    Sharpe Ratio: 0.30
+    Expected Return: £177.00
+    Probability of Profit: 50.32%
+    Sharpe Ratio: 0.31
   SR-LSTM Model:
     Expected Return: £1.94
     Probability of Profit: 100.00%
@@ -327,9 +328,9 @@ SLI:
 NRVTF:
   Current Price: £0.09
   Traditional Model:
-    Expected Return: £130.27
-    Probability of Profit: 47.29%
-    Sharpe Ratio: 0.26
+    Expected Return: £127.47
+    Probability of Profit: 46.34%
+    Sharpe Ratio: 0.24
   SR-LSTM Model:
     Expected Return: £0.62
     Probability of Profit: 100.00%
@@ -338,9 +339,9 @@ NRVTF:
 WWR:
   Current Price: £0.51
   Traditional Model:
-    Expected Return: £116.29
-    Probability of Profit: 47.51%
-    Sharpe Ratio: 0.26
+    Expected Return: £115.22
+    Probability of Profit: 48.17%
+    Sharpe Ratio: 0.28
   SR-LSTM Model:
     Expected Return: £0.80
     Probability of Profit: 100.00%
@@ -349,9 +350,9 @@ WWR:
 AMLI:
   Current Price: £0.55
   Traditional Model:
-    Expected Return: £110.53
-    Probability of Profit: 48.51%
-    Sharpe Ratio: 0.29
+    Expected Return: £114.03
+    Probability of Profit: 49.70%
+    Sharpe Ratio: 0.28
   SR-LSTM Model:
     Expected Return: £0.77
     Probability of Profit: 100.00%
@@ -360,8 +361,8 @@ AMLI:
 CVU:
   Current Price: £3.33
   Traditional Model:
-    Expected Return: £154.40
-    Probability of Profit: 51.21%
+    Expected Return: £158.55
+    Probability of Profit: 51.85%
     Sharpe Ratio: 0.31
   SR-LSTM Model:
     Expected Return: £3.13
@@ -371,8 +372,8 @@ CVU:
 BBAI:
   Current Price: £1.61
   Traditional Model:
-    Expected Return: £171.21
-    Probability of Profit: 49.70%
+    Expected Return: £172.09
+    Probability of Profit: 49.95%
     Sharpe Ratio: 0.29
   SR-LSTM Model:
     Expected Return: £1.90
@@ -382,8 +383,8 @@ BBAI:
 LUNA:
   Current Price: £1.90
   Traditional Model:
-    Expected Return: £159.51
-    Probability of Profit: 50.86%
+    Expected Return: £167.06
+    Probability of Profit: 49.27%
     Sharpe Ratio: 0.28
   SR-LSTM Model:
     Expected Return: £2.07
@@ -393,9 +394,9 @@ LUNA:
 ONDS:
   Current Price: £0.90
   Traditional Model:
-    Expected Return: £197.23
-    Probability of Profit: 48.47%
-    Sharpe Ratio: 0.24
+    Expected Return: £192.40
+    Probability of Profit: 47.67%
+    Sharpe Ratio: 0.25
   SR-LSTM Model:
     Expected Return: £1.50
     Probability of Profit: 100.00%
@@ -404,25 +405,36 @@ ONDS:
 AVAV:
   Current Price: £215.39
   Traditional Model:
-    Expected Return: £172.75
-    Probability of Profit: 55.68%
-    Sharpe Ratio: 0.38
+    Expected Return: £183.65
+    Probability of Profit: 56.65%
+    Sharpe Ratio: 0.36
   SR-LSTM Model:
     Expected Return: £21.47
     Probability of Profit: 100.00%
     Sharpe Ratio: 4900106789182.78
 
-Dynamic Portfolio Value after 3 years: £25020.68
+HL:
+  Current Price: £7.16
+  Traditional Model:
+    Expected Return: £83.98
+    Probability of Profit: 54.11%
+    Sharpe Ratio: 0.34
+  SR-LSTM Model:
+    Expected Return: £5.06
+    Probability of Profit: 100.00%
+    Sharpe Ratio: 7278934772015.65
+
+Dynamic Portfolio Value after 3 years: £37064.79
 
 Comparison of Total Expected Returns:
-Traditional Model: £9203.80
-SR-LSTM Model: £425.69
-Difference (SR-LSTM - Traditional): £-8778.11
+Traditional Model: £9255.37
+SR-LSTM Model: £430.75
+Difference (SR-LSTM - Traditional): £-8824.62
 
 Average Sharpe Ratios:
 Traditional Model: 0.35
-SR-LSTM Model: 16848930442665.95
+SR-LSTM Model: 16567459981764.47
 
 Best Performing Stocks (Based on Sharpe Ratio):
-Traditional Model: MSFT (Sharpe Ratio: 0.61)
+Traditional Model: MSFT (Sharpe Ratio: 0.62)
 SR-LSTM Model: CRM (Sharpe Ratio: 99649172097143.70)
