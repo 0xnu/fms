@@ -14,8 +14,6 @@ let stocks = [
   ({symbol = "ARRXF"; current_price = 0.18; volatility = 0.80; expected_return = 0.28}, 582);
   ({symbol = "QBTS"; current_price = 0.92; volatility = 0.68; expected_return = 0.24}, 118);
   ({symbol = "NIO"; current_price = 6.70; volatility = 0.55; expected_return = 0.20}, 37);
-  ({symbol = "REKR"; current_price = 1.10; volatility = 0.60; expected_return = 0.22}, 82);
-  ({symbol = "LTRX"; current_price = 3.92; volatility = 0.50; expected_return = 0.18}, 34);
   ({symbol = "AEVA"; current_price = 3.08; volatility = 0.75; expected_return = 0.26}, 223);
   ({symbol = "VLDR"; current_price = 1.26; volatility = 0.72; expected_return = 0.25}, 205);
   ({symbol = "ARBE"; current_price = 1.88; volatility = 0.68; expected_return = 0.24}, 151);
@@ -33,4 +31,9 @@ let stocks = [
   ({symbol = "ONDS"; current_price = 0.90; volatility = 0.75; expected_return = 0.26}, 180);
   ({symbol = "AVAV"; current_price = 215.39; volatility = 0.55; expected_return = 0.20}, 1);
   ({symbol = "HL"; current_price = 7.16; volatility = 0.50; expected_return = 0.15}, 20);
+  ({symbol = "PATH"; current_price = 13.05; volatility = 0.55; expected_return = 0.19}, 15);
+  ({symbol = "NOTE"; current_price = 1.17; volatility = 0.65; expected_return = 0.23}, 115);
+  ({symbol = "SOUN"; current_price = 5.39; volatility = 0.60; expected_return = 0.20}, 45);
+  ({symbol = "REKR"; current_price = 1.10; volatility = 0.60; expected_return = 0.22}, 82);
+  ({symbol = "LTRX"; current_price = 4.27; volatility = 0.50; expected_return = 0.18}, 34);
 ]
