@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.6 - 2024-10-22 - @0xnu
+* New stocks:
+  + PATH: Mapping AI Agents' value to existing business models around SaaS.
+  + NOTE: AI-driven policy and market intelligence through machine learning and analytics.
+  + SOUN: Conversational AI systems.
+  + REKR: AI for traffic management.
+  + LTRX: IoT solutions powered by AI.
+
 ## 0.0.5 - 2024-10-13 - @0xnu
 * Refinements
 
